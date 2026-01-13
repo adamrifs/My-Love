@@ -60,7 +60,7 @@ const Home = () => {
             <Letter />
             <WhyHere />
             <Proposal />
-            <MessageInput />
+            {/* <MessageInput /> */}
             <Closing />
           </motion.main>
         )}
