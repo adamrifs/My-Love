@@ -1,3 +1,3 @@
 export const getName = () => {
-  return new URLSearchParams(window.location.search).get("name") || "NAJIHA"
+  return new URLSearchParams(window.location.search).get("name") || "NAJI"
 }

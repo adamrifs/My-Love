@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import IntroLoader from "../components/IntroLoader"
 import AmbientSound from "../components/AmbientSound"
 import FloatingPetals from "../components/FloatingPetals"
-import HeartbeatOverlay from "../components/HeartbeatOverlay"
 
 import Hero from "../components/Hero"
 import Memories from "../components/Memories"
@@ -15,44 +14,53 @@ import Closing from "../components/Closing"
 import TalkingPoints from "../components/TalkingPoints"
 import ImageZoom from "../components/ImageZoom"
 import MessageInput from "../components/MessageInput"
+import Thoughts from "../components/Thoughts"
 
 const Home = () => {
   const [ready, setReady] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
-  // Ensure scroll is at top when content loads
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768)
+  }, [])
+
   useEffect(() => {
     if (ready) window.scrollTo(0, 0)
   }, [ready])
 
   return (
-    <div className="relative bg-[#050505] text-white selection:bg-rose-500/30 overflow-x-hidden min-h-screen">
-      
+    <div className="relative bg-[#050505] text-white overflow-x-hidden min-h-screen">
       <AnimatePresence mode="wait">
         {!ready ? (
           <IntroLoader key="loader" onFinish={() => setReady(true)} />
         ) : (
-          <motion.main 
+          <motion.main
             key="content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 2.5 }}
+            transition={{ duration: isMobile ? 0.8 : 2 }}
             className="relative z-10 flex flex-col"
           >
             <AmbientSound />
-            <HeartbeatOverlay />
+
+            {/* 🌸 Floating petals → BOTH mobile & desktop */}
             <FloatingPetals />
 
-            {/* 🎞️ Global Film Grain Texture Overlay */}
-            <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.08] mix-blend-overlay bg-noise" />
+            {/* Film grain → desktop only */}
+            {!isMobile && (
+              <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.08] mix-blend-overlay bg-noise" />
+            )}
 
             <Hero />
             <Memories />
-            <ImageZoom/>
-            <TalkingPoints/>
+            <Thoughts/>
+            {!isMobile && <ImageZoom />}
+            {!isMobile && <TalkingPoints />}
+
             <Letter />
             <WhyHere />
             <Proposal />
-            <MessageInput/>
+            <MessageInput />
             <Closing />
           </motion.main>
         )}
