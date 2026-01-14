@@ -15,6 +15,8 @@ import TalkingPoints from "../components/TalkingPoints"
 import ImageZoom from "../components/ImageZoom"
 import MessageInput from "../components/MessageInput"
 import Thoughts from "../components/Thoughts"
+import ConnectionThread from "../components/ConnectionThread"
+import EchoesOfLight from "../components/EchoesOfLight"
 
 const Home = () => {
   const [ready, setReady] = useState(false)
@@ -41,9 +43,9 @@ const Home = () => {
             transition={{ duration: isMobile ? 0.8 : 2 }}
             className="relative z-10 flex flex-col"
           >
-            <AmbientSound />
+            {/* <AmbientSound /> */}
 
-            {/* 🌸 Floating petals → BOTH mobile & desktop */}
+            {/* Floating petals → BOTH mobile & desktop */}
             <FloatingPetals />
 
             {/* Film grain → desktop only */}
@@ -54,12 +56,14 @@ const Home = () => {
             <Hero />
             <Memories />
             <Thoughts/>
+            <ConnectionThread/>
+            <EchoesOfLight/>
             {!isMobile && <ImageZoom />}
             {!isMobile && <TalkingPoints />}
 
             <Letter />
             <WhyHere />
-            <Proposal />
+            {/* <Proposal /> */}
             {/* <MessageInput /> */}
             <Closing />
           </motion.main>

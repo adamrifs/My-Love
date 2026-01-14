@@ -13,7 +13,7 @@ export default function Closing() {
         className="space-y-12"
       >
         <p className="text-rose-100/60 font-['Cormorant_Garamond'] italic text-2xl md:text-3xl max-w-md leading-relaxed">
-          Whatever you choose — <br />
+          Whatever you choose <br />
           thank you for reading my heart.
         </p>
 

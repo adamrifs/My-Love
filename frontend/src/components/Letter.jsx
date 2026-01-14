@@ -65,7 +65,7 @@ export default function Letter() {
                             transition={{ duration: 1.5, delay: 0.8 }}
                             className="italic"
                         >
-                            I’m here because what we shared mattered — <span className="text-white font-medium not-italic underline decoration-rose-500/40 underline-offset-8">deeply</span>.
+                            I’m here because what we shared mattered <span className="text-white font-medium not-italic underline decoration-rose-500/40 underline-offset-8">deeply</span>.
                         </motion.p>
 
                         <motion.p

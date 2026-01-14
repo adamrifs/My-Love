@@ -88,7 +88,7 @@ export default function WhyHere() {
           >
             But to rewrite <br />
             <span className="relative inline-block mt-4 italic text-rose-200">
-              the future — together.
+              the future together.
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
